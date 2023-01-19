@@ -17,14 +17,14 @@ puts short(journalists)
 
 #number of handle with 5 characters without @
 def five_characters(array)
-    array.select! { |handle| handle.gsub(/[@]/,'').size == 5}.count
+    array.select { |handle| handle.gsub(/[@]/,'').size == 5}.count
 end
 puts five_characters(journalists)
 
 
 #number of handle begin by a maj without @
 def begin_by_maj(array)
-    array.select! { |handle| handle.gsub(/[@]/,'').match?(/\A[A-Z]/)}.count 
+    array.select { |handle| handle.gsub(/[@]/,'')[0].match?(/\A[A-Z]/)}.count 
 end
 puts begin_by_maj(journalists)
 
@@ -38,8 +38,7 @@ puts sort_by_a_b(journalists)
 
 #Array sort by size
 def sort_by_size(array)
-    array.sort_by(&:size)
-    
+    array.sort_by(&:size) 
 end
 puts sort_by_size(journalists)
 
@@ -55,9 +54,20 @@ def position_of_handle2(array)
 end
 puts position_of_handle2(journalists)
 
+
 #sort and count handle by size(stand_by)
 def sort_and_count_by_size(array)
-    array.each do |handle|
-        handle.size
+    number = Array.new(0)
+    frequence = Hash.new(0)
+
+    array.each do |name|
+        number << name.size
     end
+
+    number.each do |number|
+        frequence[number] +=1
+    end
+
+    frequence = frequence.sort_by{|name, count| count}.reverse!.inspect
 end
+puts sort_and_count_by_size(journalists)
