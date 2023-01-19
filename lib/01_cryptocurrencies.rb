@@ -19,18 +19,15 @@ end
 puts lowest_crypto_value(my_hash)
 
 
-target_value = 6000.0
-
-
 #find crypto under value 6k
 def crypto_under_6k(hash)
-    hash.select! {|k,v| v.to_f <= target_value} 
+    hash.select {|k,v| v.to_f < 6000.0} 
 end
 puts crypto_under_6k(my_hash)
 
 
-#find highest crypto over value 6k
+#find highest crypto under value 6k
 def highest_crypto_over_6k(hash)
-    hash.select! {|k,v| v.to_f >= target_value}.max_by{|k,v| v.to_f}
+    hash.select {|k,v| v.to_f < 6000.0}.max_by{|k,v| v.to_f}
 end
 puts highest_crypto_over_6k(my_hash)
