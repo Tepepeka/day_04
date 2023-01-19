@@ -27,7 +27,7 @@ puts crypto_under_6k(my_hash)
 
 
 #find highest crypto under value 6k
-def highest_crypto_over_6k(hash)
+def highest_crypto_under_6k(hash)
     hash.select {|k,v| v.to_f < 6000.0}.max_by{|k,v| v.to_f}
 end
-puts highest_crypto_over_6k(my_hash)
+puts highest_crypto_under_6k(my_hash)
