@@ -9,14 +9,14 @@ my_hash = Hash[devises.zip(values)]
 def highest_crypto_value(hash)
     hash.max_by{|k,v| v.to_f}
 end
-#puts highest_crypto_value(my_hash)
+puts highest_crypto_value(my_hash)
 
 
 #find lowest crypto
 def lowest_crypto_value(hash)
     hash.min_by{|k,v| v.to_f}
 end
-#puts lowest_crypto_value(my_hash)
+puts lowest_crypto_value(my_hash)
 
 
 #find crypto under value 6k
